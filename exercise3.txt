@@ -1,0 +1,25 @@
+3a
+With cProfile, the lines 9 and 14 are shown to contribute to the time consumption,
+these are the loops that append the matrices. The matrix multiplication on 
+lines 26 and 27 are major time consuming steps. 
+
+The line-profiler showed that most of the time was spent in the last nested 
+for-loop on line 26 and the result calculation on line 27 with
+33.8 % and 64.1 % of time used respectively. 
+
+These nested loop lines also seem to require the most memory. 
+
+3b
+Lines 10, 11, 13, 25, 26, 29 are time consuming but line 52 contributes
+the most, which basically is calling whole the factorize function. 
+
+Line 52 also contributes the most to memory usage. 
+
+3c
+Just changing the last nested loop used for matrix multiplication to
+a matrix multiplication using numpy decreased to total time from approx. 
+22 s to 0.44 s. 
+
+Using NumPy to make random matrices improved the time additionally, with
+the total time being 0.04 s. However, the changes increased the overall 
+memory usage. 
